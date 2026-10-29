@@ -1,0 +1,22 @@
+#include <iostream>
+using namespace std;
+
+bool hasAlteringBits(int n);
+
+int main() {
+    int n;
+    cin>>n;
+    cout<<hasAlteringBits(n) ? "True" : "False";
+}
+
+bool hasAlteringBits(int n) {
+    int prevnum=n%2;
+    n/=2;
+    while(n>0) {
+        int curnum= n%2;
+        if (curnum==prevnum) return false;
+        prevnum=curnum;
+        n/=2;
+    }
+    return true;
+}

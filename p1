@@ -1,0 +1,26 @@
+#include <iostream>
+using namespace std;
+
+int toMinutes(int h, int m);
+int convertTime(int current, int correct);
+
+int main() {
+    int h1, m1, h2, m2;
+    char c;
+    cin >> h1 >> c >> m1 >> h2 >> c >> m2;
+    cout << convertTime(toMinutes(h1, m1), toMinutes(h2, m2)) << endl;
+    return 0;
+}
+
+int toMinutes(int h, int m) {
+    return h * 60 + m;
+}
+
+int convertTime(int current, int correct) {
+    int diff = correct - current, c1 = 0;
+    while (diff >= 60) { diff -= 60; c1++; }
+    while (diff >= 15) { diff -= 15; c1++; }
+    while (diff >= 5)  { diff -= 5;  c1++; }
+    while (diff >= 1)  { diff -= 1;  c1++; }
+    return c1;
+}
